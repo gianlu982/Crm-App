@@ -1,0 +1,19 @@
+<div class="wrapper">
+    <div class="logo">
+        <img src="https://www.freepnglogos.com/uploads/logo-telepon-png/telephone-icon-download-28.png" alt="">
+    </div>
+    <div class="text-center mt-4 name">
+        CRM
+    </div>
+    <form class="p-3 mt-3">
+        <div class="form-field d-flex align-items-center">
+            <span class="far fa-user"></span>
+            <input type="text" name="id" id="id" placeholder="Id" required [(ngModel)]="operatorsLogged">
+        </div>
+        <div class="form-field d-flex align-items-center">
+            <span class="fas fa-key"></span>
+            <input type="password" name="password" id="pwd" placeholder="Password">
+        </div>
+    </form>
+    <button routerLink="/home" class="btn btn-primary mt-3" (click)="saveOperatorsLogged()" >Login</button>
+</div>
