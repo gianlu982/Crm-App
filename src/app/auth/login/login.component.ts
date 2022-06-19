@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
 
   constructor() { }
 
-  operatorlog!: Operator;
+  operatorlog: Operator[] = [];
 
   operator: Operator[]  = operatorList;
 
@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 
 
   getOperatorsLogged() {
-    this.operatorlog = operatorList.find((x: { id: string; }) => x.id = this.operatorsLogged);
-    return this.operatorlog;
+    this.operatorlog = operatorList.find((operator:Operator) => operator.id === this.operatorsLogged);   
   }
 
   setOperatorsLogged(){

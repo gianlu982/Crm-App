@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Operator } from 'src/assets/interface/operator';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-welcome-page',
+  templateUrl: './welcome-page.component.html',
+  styleUrls: ['./welcome-page.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class WelcomePageComponent implements OnInit {
 
   operatorLogged!: Operator;
   operatorStr: any;
@@ -19,17 +19,7 @@ export class HomeComponent implements OnInit {
 
   getData() {
     this.operatorStr = localStorage.getItem('operatorLogged');
-    this.operatorLogged = JSON.parse(this.operatorStr);   
-    console.log(this.operatorLogged);
-    
-
+    this.operatorLogged = JSON.parse(this.operatorStr);    
    }
-  
-   removeData() {
-    localStorage.removeItem('operatorLogged')
-   } 
-  
 
 }
-
-

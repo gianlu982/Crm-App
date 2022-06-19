@@ -1,0 +1,26 @@
+<div class="container-md mt-4">
+    <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Company</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Operator</th>
+            <th scope="col">Action</th>
+            <th><button class="btn btn-success"><i class="bi bi-plus-circle"></i></button></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let contact of contactList">
+            <th scope="row">{{contact.firstName}} {{contact.lastName}}</th>
+            <td>{{contact.company}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.phone}}</td>
+            <td>{{contact.operatorId}}</td>
+            <td><button class="btn btn-primary"><i class="bi bi-arrow-return-right"></i></button></td>
+            <td><button class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

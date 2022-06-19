@@ -1,6 +1,6 @@
 export interface Operator {
     name: string;
-    id: number;
+    id: string;
     password: string;
-    level: number;
+    level: string;
 }
