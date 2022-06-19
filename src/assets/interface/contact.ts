@@ -1,7 +1,7 @@
 export interface Contact {
     firstName: string,
       lastName: string,
-      gender: string,
+      gender?: string,
       company: string,
       email: string,
       phone: string,

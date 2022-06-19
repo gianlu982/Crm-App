@@ -1,5 +1,5 @@
 <div class="container-md mt-4">
-    <table class="table">
+    <table class="table table-hover">
         <thead class="thead-dark">
           <tr>
             <th scope="col">Name</th>
@@ -8,7 +8,7 @@
             <th scope="col">Phone</th>
             <th scope="col">Operator</th>
             <th scope="col">Action</th>
-            <th><button class="btn btn-success"><i class="bi bi-plus-circle"></i></button></th>
+            <th><button type="button" class="btn btn-success" data-toggle="modal" data-target="#addClient"><i class="bi bi-plus-circle"></i></button></th>
           </tr>
         </thead>
         <tbody>
@@ -18,9 +18,97 @@
             <td>{{contact.email}}</td>
             <td>{{contact.phone}}</td>
             <td>{{contact.operatorId}}</td>
-            <td><button class="btn btn-primary"><i class="bi bi-arrow-return-right"></i></button></td>
-            <td><button class="btn btn-danger"><i class="bi bi-trash"></i></button></td>
+            <td><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewClient" (click)="selectContact(contact)"><i class="bi bi-arrow-return-right"></i></button></td>
+            <td><button class="btn btn-danger" (click)="deleteContact(contact)"><i class="bi bi-trash"></i></button></td>
           </tr>
         </tbody>
       </table>
 </div>
+
+<!-- Modal viewClient -->
+<div class="modal fade" id="viewClient" tabindex="-1" role="dialog" aria-labelledby="viewClientLabel" aria-hidden="true" *ngIf="contactSelected">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="viewClientLabel">View selected client</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" ngModel="{{contactSelected.firstName}}">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" ngModel="{{contactSelected.lastName}}">
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" class="form-control" id="company" placeholder="Company" name="company" ngModel="{{contactSelected.company}}">
+            </div>
+            <div class="form-group">
+                <label for="company">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" ngModel="{{contactSelected.email}}">
+            </div> 
+            <div class="form-group">
+                <label for="company">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" ngModel="{{contactSelected.phone}}">
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="form-control" id="operatorId" name="operatorId" ngModel="{{operatorLogged.id}}">
+            </div>  
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-secondary" data-dismiss="modal">Save & Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal AddClient -->
+<div class="modal fade" id="addClient" tabindex="-1" role="dialog" aria-labelledby="addClientLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addClientLabel">Add new Client</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName" ngModel>
+            </div>
+            <div class="form-group">
+              <label for="company">Company</label>
+              <input type="text" class="form-control" id="company" placeholder="Company" name="company" ngModel>
+            </div>
+            <div class="form-group">
+                <label for="company">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email" name="email" ngModel>
+            </div> 
+            <div class="form-group">
+                <label for="company">Phone</label>
+                <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone" ngModel>
+            </div>
+            <div class="form-group">
+                <input type="hidden" class="form-control" id="operatorId" name="operatorId" ngModel="{{operatorLogged.id}}">
+            </div>  
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="reset" class="btn btn-secondary" data-dismiss="modal" (click)="onSubmit(f); f.resetForm()">Save & Close</button>
+        </div>
+      </div>
+    </div>
+  </div>

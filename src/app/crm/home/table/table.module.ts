@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { TableRoutingModule } from './table-routing.module';
 import { TableComponent } from './table.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -11,7 +12,8 @@ import { TableComponent } from './table.component';
   ],
   imports: [
     CommonModule,
-    TableRoutingModule
+    TableRoutingModule,
+    FormsModule
   ]
 })
 export class TableModule { }
