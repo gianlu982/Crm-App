@@ -2,19 +2,16 @@
     {
         "name": "John",
         "id": "101",
-        "password": "123",
         "level": "admin"
     },
     {
         "name": "Albert",
         "id": "102",
-        "password": "123",
         "level": "operator"
     },
     {
         "name": "Sophie",
         "id": "103",
-        "password": "123",
         "level": "operator"
     }
 ]

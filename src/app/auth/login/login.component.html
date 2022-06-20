@@ -8,12 +8,12 @@
     <form class="p-3 mt-3">
         <div class="form-field d-flex align-items-center">
             <span class="far fa-user"></span>
-            <input type="text" name="id" id="id" placeholder="Id" required [(ngModel)]="operatorsLogged">
+            <input type="text" name="id" id="id" placeholder="Id" [(ngModel)]="operatorsLogged">
         </div>
         <div class="form-field d-flex align-items-center">
             <span class="fas fa-key"></span>
-            <input type="password" name="password" id="pwd" placeholder="Password">
+            <input type="password" name="password" id="pwd" placeholder="Password" [(ngModel)]="inputPassword">
         </div>
     </form>
-    <button routerLink="/home" class="btn btn-primary mt-3" (click)="saveOperatorsLogged()" >Login</button>
+    <button class="btn btn-primary mt-3" (click)="login()">Login</button>
 </div>
